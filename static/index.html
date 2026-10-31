@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>첫연결 · 나에게 가능한 첫걸음</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+  <header><a class="brand" href="/" aria-label="첫연결 홈"><span class="brand-mark">↗</span> 첫연결</a><span class="header-note">2026 빅콘테스트 · 실행 프로토타입</span><span class="live-dot">공식 자료 기반</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">A SMALL STEP, A REAL CONNECTION</p><h1>지금 나에게 가능한<br><span>첫 연결을 찾아요.</span></h1><p class="lede">거리와 비용, 연락의 부담까지.<br>나의 상황에 맞는 지역 지원을 찾고 첫 행동을 준비합니다.</p></div><aside class="note"><span class="note-symbol">↗</span><p>부담스러운 방식은<br>선택하지 않아도 괜찮아요.</p><small>진행이 어려우면 다른 경로를 함께 찾습니다.</small></aside></section>
+    <div class="workspace">
+      <section class="panel input-panel" aria-labelledby="input-title">
+        <div class="panel-heading"><span class="step">01</span><h2 id="input-title">나의 상황</h2></div>
+        <p class="muted">이름·연락처 없이 알아볼 수 있어요.</p>
+        <div class="examples"><span>가상 상황으로 살펴보기</span><div><button type="button" data-example="gangnam">강남 · 관계 만들기</button><button type="button" data-example="chuncheon">춘천 · 안부 지원</button><button type="button" data-example="escort">춘천 · 병원 동행</button></div></div>
+        <form id="profile-form">
+          <div class="field-row"><label>거주 지역<select name="region"><option>강남구</option><option>춘천시</option></select></label><label>나이<input name="age" type="number" min="18" max="110" placeholder="미응답 가능"></label></div>
+          <label>지금 필요한 도움<select name="goal"><option value="관계 취미 문화">관계 만들기 · 취미 활동</option><option value="안부 일상 생활">안부 확인 · 일상 지원</option><option value="동행 병원 생활">병원 동행 · 생활 지원</option></select></label>
+          <label>혼자 살고 있나요?<select name="single"><option value="">아직 답하지 않을게요</option><option value="true">네</option><option value="false">아니요</option></select></label>
+          <details id="support-check"><summary>관계와 지원 필요 확인 (선택)</summary><div class="details-body"><p class="helper">답하지 않아도 서비스를 찾아볼 수 있어요. 고립 위험을 판정하는 질문은 아닙니다.</p><label>최근 2주 동안 가족·지인과 이야기를 주고받을 기회가 있었나요?<select name="support_recent_contact"><option value="">잘 모르겠어요 / 미응답</option><option value="true">네</option><option value="false">아니요</option></select></label><label>힘들거나 일상에 도움이 필요할 때 부탁할 사람이 있나요?<select name="support_available"><option value="">잘 모르겠어요 / 미응답</option><option value="true">네</option><option value="false">아니요</option></select></label><label>지금 준비하고 싶은 행동은 무엇인가요?<select name="support_preference"><option value="">아직 정하지 않았어요</option><option value="social_activity">관계 활동을 알아보고 싶어요</option><option value="daily_support">안부 확인·일상 지원을 알아보고 싶어요</option><option value="information_only">지금은 정보만 살펴볼게요</option></select></label><p class="helper">희망과 현재 지원 목표가 다르면 바꿀지 먼저 확인해요.</p></div></details>
+          <label>나의 상황과 바라는 점<textarea name="request" maxlength="2000" rows="3" placeholder="예: 사람을 만나고 싶지만 전화로 신청하는 게 부담스러워요."></textarea></label>
+          <p class="helper">문장에 명확히 드러난 전화·방문·비용 부담은 짧은 확인 질문으로 다시 여쭤봐요.</p>
+          <fieldset><legend>피하고 싶은 방식</legend><label class="check"><input type="checkbox" name="avoid" value="phone">전화</label><label class="check"><input type="checkbox" name="avoid" value="visit">방문·대면</label></fieldset>
+          <details><summary>비용과 추가 조건 입력</summary><div class="details-body"><label>이번 프로그램의 지출 예산 (원)<input name="budget_krw" type="number" min="0" max="1000000" placeholder="미응답 가능 · 무료 희망은 0"></label><label>안드로이드 휴대전화를 사용하나요?<select name="android"><option value="">미응답</option><option value="true">네</option><option value="false">아니요</option></select></label><label>수급·차상위·기초연금 중 해당하는 조건이 있나요?<select name="benefit_eligible"><option value="">미응답</option><option value="true">네</option><option value="false">아니요</option></select></label><label>강남구 1인가구센터 멤버십 회원인가요?<select name="center_member"><option value="">미응답</option><option value="true">네</option><option value="false">아니요</option></select></label></div></details>
+          <details id="care-conditions"><summary>춘천시 일상돌봄 사전 확인 (선택)</summary><div class="details-body"><p class="helper">본인의 상황을 확인하는 질문입니다. ‘예’로 답해도 증빙과 최종 선정은 기관 확인이 필요합니다.</p><label>질병·부상 등으로 일상생활에 돌봄이 필요한가요?<select name="care_need"><option value="">잘 모르겠어요 / 미응답</option><option value="true">네</option><option value="false">아니요</option></select></label><label>돌봄을 제공할 가족이 없거나, 가족이 있어도 제공이 어려운가요?<select name="no_caregiver"><option value="">잘 모르겠어요 / 미응답</option><option value="true">네</option><option value="false">아니요</option></select></label></div></details>
+          <details><summary>데모 실행 설정</summary><div class="details-body"><label>실행 방식<select name="mode"><option value="rules">규칙 기반 · API 없이 실행</option><option value="llm">LLM 도구 실행 · 서버 설정 필요</option></select></label><p id="llm-status" class="helper"></p><label class="check consent"><input name="consent" type="checkbox">LLM 모드에서 입력한 상황·선택 조건·관계와 지원 필요 응답을 외부 OpenAI API로 전송하는 데 동의합니다.</label></div></details>
+          <button class="primary" id="submit-button" type="submit">가능한 첫걸음 찾기 <span>↗</span></button>
+          <p class="helper">입력은 서버에 저장하지 않습니다. 신청·연락은 직접 선택해 진행합니다.</p>
+        </form>
+      </section>
+      <section class="results" aria-labelledby="result-title" aria-live="polite">
+        <div class="result-heading"><div><p class="eyebrow">YOUR NEXT STEP</p><h2 id="result-title">연결을 준비하는 공간</h2></div><button id="export-button" class="quiet" type="button" hidden>계획 저장 ↓</button></div>
+        <div id="error" role="alert" hidden></div><div id="loading" class="loading" hidden>조건과 출처를 확인하고 있어요…</div>
+        <div id="clarification-panel" class="panel" hidden></div>
+        <div id="empty" class="empty"><span class="empty-icon">↗</span><h3>작은 선택에서 시작해요.</h3><p>왼쪽에 나의 상황을 입력하면<br>확인할 조건과 다음 행동을 정리해 드립니다.</p><div class="flow"><span>조건 확인</span><i>→</i><span>자원 탐색</span><i>→</i><span>첫 행동</span></div></div>
+        <div id="result-body"></div>
+        <details class="panel regional"><summary>사회적 고립 분야 분석 연결</summary><div class="details-body"><p class="muted">제공 데이터의 지역·연령집단 활동 변화와 모형의 확인 경로를 연결합니다. 보정 이탈이 크면 자료·모형 확인을 먼저 안내합니다. 기후·상권 분석과 독립적이며 개인의 고립 여부나 자격을 판정하지 않습니다.</p><button type="button" id="latest-analysis-button" class="quiet" disabled>제공 데이터 분석 결과 불러오기</button><p id="analysis-source" class="helper">완료된 분석 결과 확인 중…</p><label class="file-label">다른 분석 결과 CSV 선택<input type="file" id="signals-file" accept=".csv,text/csv"></label><div id="signals-output"><p class="helper">현재 분석 결과는 연결되지 않았습니다.</p></div></div></details>
+      </section>
+    </div>
+    <footer><p id="data-status">수집 자료 확인 중…</p><p>공개 자료의 사실 항목을 검토한 초기 카탈로그입니다. 개별 이용조건과 현재 모집 여부는 확인이 필요합니다.</p></footer>
+  </main>
+<script id="app-code">
+const form = document.querySelector('#profile-form');
+const resultBody = document.querySelector('#result-body');
+const errorBox = document.querySelector('#error');
+let lastPlan = null, feedbackHistory = [], signalRows = [], signalCsv = '', planInputCsv = null;
+let activityModelEnabled = false;
+const names = {phone:'전화',visit:'방문·대면',web:'온라인',chat:'채팅',home:'가정 지원',remote:'비대면',accompanied:'동행'};
+
+function el(tag, text, cls) {
+  const node = document.createElement(tag);
+  if (text !== undefined && text !== null) node.textContent = text;
+  if (cls) node.className = cls;
+  return node;
+}
+function list(items, ordered=false) {
+  const node = el(ordered ? 'ol' : 'ul');
+  items.forEach(item => node.append(el('li', item)));
+  return node;
+}
+function link(text, url, cls) {
+  const node = el('a', text, cls);
+  if (!/^https:\/\//.test(url || '')) return el('span', text);
+  node.href = url; node.target = '_blank'; node.rel = 'noopener noreferrer'; return node;
+}
+function details(title, contents, cls) {
+  const node = el('details', null, cls); node.append(el('summary', title), ...contents); return node;
+}
+function booleanValue(name) { return form.elements[name].value === '' ? null : form.elements[name].value === 'true'; }
+function integerValue(name) { return form.elements[name].value === '' ? null : Number(form.elements[name].value); }
+function readProfile() {
+  return {region:form.elements.region.value, age:integerValue('age'), single:booleanValue('single'),
+    android:booleanValue('android'), benefit_eligible:booleanValue('benefit_eligible'), budget_krw:integerValue('budget_krw'),
+    center_member:booleanValue('center_member'),
+    care_need:booleanValue('care_need'), no_caregiver:booleanValue('no_caregiver'),
+    support_check:{recent_contact:booleanValue('support_recent_contact'),support_available:booleanValue('support_available'),preferred_next_step:form.elements.support_preference.value || null},
+    goal:form.elements.goal.value, request:form.elements.request.value,
+    avoid_channels:[...form.querySelectorAll('[name=avoid]:checked')].map(node => node.value)};
+}
+function fillProfile(profile) {
+  for (const [key,value] of Object.entries(profile)) {
+    if (key === 'avoid_channels') {
+      form.querySelectorAll('[name=avoid]').forEach(node => {node.checked = value.includes(node.value);});
+    } else if (key === 'support_check') {
+      for (const [field,name] of Object.entries({recent_contact:'support_recent_contact',support_available:'support_available',preferred_next_step:'support_preference'})) {
+        form.elements[name].value=value[field] === null ? '' : String(value[field]);
+      }
+    } else if (form.elements[key]) {
+      form.elements[key].value = value === null ? '' : String(value);
+    }
+  }
+}
+async function post(path, body) {
+  const response = await fetch(path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const data = await response.json(); if (!response.ok) throw new Error(data.error || '요청을 처리하지 못했어요.'); return data;
+}
+function setBusy(busy) {
+  document.querySelector('#loading').hidden = !busy;
+  document.querySelectorAll('button').forEach(button => {
+    if (busy) {button.dataset.wasDisabled=String(button.disabled);button.disabled=true;}
+    else if (button.dataset.wasDisabled !== undefined) {button.disabled=button.dataset.wasDisabled==='true';delete button.dataset.wasDisabled;}
+  });
+}
+function showError(message) {errorBox.textContent = message; errorBox.hidden = false;}
+
+function renderPlan(plan) {
+  lastPlan = plan;
+  document.querySelector('#empty').hidden = true;
+  document.querySelector('#export-button').hidden = false;
+  document.querySelector('#result-title').textContent = plan.recommendations.length ? '나에게 가능한 다음 행동' : '조건을 더 살펴볼게요';
+  resultBody.replaceChildren();
+  resultBody.hidden=false;
+  const mode = plan.mode === 'llm' ? `LLM 도구 실행 · ${plan.model}` : '규칙 기반 실행';
+  resultBody.append(el('p', `${plan.profile.region} · ${plan.as_of} 기준 · ${mode}`, 'overview'));
+  if (plan.profile.avoid_channels.length) resultBody.append(el('p', `피하고 싶은 방식 유지: ${plan.profile.avoid_channels.map(x=>names[x]).join(', ')}`, 'overview'));
+  if(plan.activity_assessment){
+    const assessment=plan.activity_assessment;
+    const panel=el('section',null,'panel activity-summary');
+    panel.append(el('h3','과거 집단 활동 신호와 확인 경로'));
+    if(assessment.status!=='assessed')panel.append(el('p',assessment.message));
+    else{
+      const row=assessment.cohort;
+      panel.append(el('strong',`${assessment.response.label} · 연구용 확인 결과`),
+        el('p',`${assessment.period_start} ~ ${assessment.period_end} · ${row.region} ${row.age_min}${row.age_min===60?'세 이상':'대'}`,'helper'),
+        list(assessment.observations),list(assessment.response.steps,true));
+      if(row.calibration_watch)panel.append(el('p',`이 달의 거래량 관측 하한 포함률은 ${(row.empirical_month_lower_coverage*100).toFixed(1)}%입니다. 보정 이탈이 커서 경보를 확정하지 않고 자료·모형 확인을 우선해요.`,'helper'));
+      if(assessment.population_source_context){
+        const context=assessment.population_source_context;
+        panel.append(details('추가 통신자료의 품질 확인',[
+          el('strong','12월 시간대·요일별 자료 해석 보류'),list(context.notes),
+          list(context.sources.map(s=>`${s.view==='time'?'시간대별':'요일별'} 원본 ${s.raw_rows.toLocaleString('ko-KR')}행 중 동일한 추가 행 ${s.identical_extra_rows.toLocaleString('ko-KR')}행 · 기본 해석 제외`)),
+          el('p','이 표시는 추가 자료의 품질 확인입니다. 기존 카드·연령별 유동량 판단이나 개인 자격을 변경하지 않아요.','helper'),
+          el('p',context.assurance,'helper')],'population-source-context'));
+      }
+      if(assessment.drift_context)panel.append(details('보정 이탈의 비교 근거',[
+        list(assessment.drift_context.notes),el('p',assessment.drift_context.assurance,'helper'),
+        el('p','매일 갱신하는 비교 모형은 기존 모형을 대체하지 않았어요.','helper')],'drift-context'));
+      if(assessment.episode_review){
+        const review=assessment.episode_review;
+        const contents=[el('strong',`${review.label} · 과거 재생`),list(review.notes)];
+        if(review.events.length)contents.push(list(review.events.map(e=>`${e.start} 시작 → ${e.confirmed_at} 관측 확인${e.closed_at?` → ${e.closed_at} 두 하한 기준 재충족`:e.review_required_at?` → ${e.review_required_at} 일일 기준 재충족 · 종료 근거 확인 대기`:' · 미종료'}`)));
+        if(review.pending_closure_reviews.length){
+          const checks=[];
+          review.pending_closure_reviews.forEach(e=>{
+            const a=e.closure_audit;
+            checks.push(el('p',`${e.review_reason_label} · 시작 전 기준 종료일 ${a.anchor_end} · 종료 후보일 기준 ${a.anchor_age_days}일 경과`),
+              el('p',`종료 후보일의 마지막 ${a.observed_days}일 중 ${a.below_anchor_days}일이 시작 전 하한 미만입니다.`));
+            if(a.min_ratio_to_anchor!==null)checks.push(el('p',`시작 전 요일 평균 대비 최소 ${(a.min_ratio_to_anchor*100).toFixed(1)}% · 하한 기준 ${(a.threshold_ratio*100).toFixed(1)}%`,'helper'));
+            checks.push(el('p',`자료 종료일 기준으로는 ${e.anchor_age_at_data_end}일 전 기준입니다. 현재 상태를 자동 판정하는 데 다시 사용하지 않아요.`,'helper'));
+            if(review.draft_memo)checks.push(list(e.review_questions));
+          });
+          contents.push(details(`종료 근거 확인 대기 ${review.pending_closure_reviews.length}건`,checks,'closure-review-evidence'));
+        }
+        contents.push(el('p',review.assurance,'helper'));
+        if(review.draft_memo)contents.push(details('검토 메모 초안',[el('p',review.draft_memo,'inquiry')],'episode-review-memo'));
+        panel.append(details('관측 사건 기록 (검토용)',contents,'episode-review'));
+      }
+      panel.append(el('p','2025년 집계 활동을 검토한 결과입니다. 현재 개인의 고립 위험 등급이나 지원 자격이 아니에요.','helper'));
+      if(assessment.response.suggest_support_check){
+        const button=el('button','원하면 지원 필요 확인하기','quiet');button.type='button';
+        button.addEventListener('click',()=>{const target=document.querySelector('#support-check');target.open=true;target.scrollIntoView({block:'center'});target.querySelector('select').focus();});
+        panel.append(button);
+      }
+      if(assessment.review_queue.length)panel.append(details('집단 자료·맥락 확인 대기열',[
+        el('p',assessment.review_order_meaning,'helper'),
+        list(assessment.review_queue.map(r=>`전체 확인 순서 ${r.review_order} · ${r.region} ${r.age_min}${r.age_min===60?'세 이상':'대'} · ${r.state_label} (참고용)`))]));
+    }
+    resultBody.append(panel);
+  }
+  if (plan.support_context?.status === 'self_report_only') {
+    const support=el('section',null,'panel support-summary');
+    support.append(el('h3','내가 답한 지원 필요'),list(plan.support_context.findings.map(item=>item.text)));
+    const goalNames={'관계 취미 문화':'관계 만들기·취미 활동','안부 일상 생활':'안부 확인·일상 지원','동행 병원 생활':'병원 동행·생활 지원','관계 취미 일상':'관계·취미·일상 지원'};
+    support.append(el('p',`이번 탐색 목표: ${goalNames[plan.profile.goal]}`,'helper'));
+    plan.support_context.guidance.forEach(text=>support.append(el('p',text,'helper')));
+    resultBody.append(support);
+  }
+  if (plan.questions.length) resultBody.append(list(plan.questions));
+  plan.recommendations.forEach((card, index) => {
+    const node = el('article', null, 'card');
+    const top = el('div', null, 'card-top');
+    top.append(el('h3', `${String(index+1).padStart(2,'0')}  ${card.name}`), el('span', card.status, 'badge')); node.append(top);
+    node.append(el('p', card.summary, 'description'), el('div', card.matched.join(' · '), 'reason'), el('p', `지원 대상 · ${card.target}`));
+    node.append(el('p', `신청: ${card.application_channels.map(x=>names[x]).join(' / ')}  ·  참여: ${card.participation_channels.map(x=>names[x]).join(' / ')}`, 'helper'));
+    if (card.hours) node.append(el('p', `안내된 운영시간 · ${card.hours}`, 'helper'));
+    const dateRange = range => `${range.start || '시작일 미공개'} ~ ${range.end || '종료일 미공개'}`;
+    if (card.application_period.end) node.append(el('p', `모집기간 · ${dateRange(card.application_period)}`, 'period'));
+    if (card.participation_period.start) node.append(el('p', `활동기간 · ${dateRange(card.participation_period)}`, 'helper'));
+    node.append(el('p', card.cost_krw === null ? `비용 · ${card.cost_note}` : `비용 · ${card.cost_krw.toLocaleString()}원 (${card.cost_note})`, 'cost'));
+    const confirmation = el('div', null, 'confirmation');
+    confirmation.append(el('strong', '아직 확인해야 할 조건'), list(card.needs_confirmation)); node.append(confirmation);
+    if (card.prerequisite_checks.length) {
+      const checks=card.prerequisite_checks.map(check=>{
+        const state=check.state==='unanswered'?'미응답 · 확인 필요':check.institution_check_required?'본인 응답 예 · 기관 확인 전':'본인 응답상 조건 일치';
+        return `${check.label}: ${state}`;
+      });
+      node.append(details('신청 요건의 확인 상태',[list(checks)]));
+    }
+    node.append(el('strong', card.preparation_scope==='information_only'?'이번에는 정보만 살펴봐요':'첫 행동을 준비해요', 'muted'), list(card.steps, true));
+    if(card.inquiry_draft)node.append(details('첫 문의 문안 보기', [el('p', card.inquiry_draft, 'inquiry')]));
+    const actions = el('div', null, 'card-actions');
+    actions.append(link('공식 안내 확인 ↗', card.source.url, 'action-link'));
+    if (card.action_url) actions.append(link('신청 경로 살펴보기 ↗', card.action_url, 'action-link'));
+    node.append(actions);
+    const source = el('div', null, 'source');
+    source.append(el('p', `출처: ${card.source.publisher} · 수집 ${card.source.collected_at.slice(0,10)} (UTC)`));
+    source.append(details('원문 근거와 이용조건', [el('blockquote', card.evidence.join('\n')), el('p',card.source.license_note), el('p',`SHA-256: ${card.source.sha256}`)])); node.append(source);
+    const feedback = el('div', null, 'feedback-row');
+    const reason = el('select'); reason.setAttribute('aria-label', `${card.name} 진행이 어려운 이유`);
+    [['other','다른 서비스를 원해요'],['phone','전화가 부담스러워요'],['visit','방문·대면이 어려워요'],['closed','모집 종료를 확인했어요'],['cost','비용이 부담스러워요']].forEach(([value,text])=>{const option=el('option',text); option.value=value; reason.append(option);});
+    const retry = el('button','다른 경로 찾기 ↗'); retry.type='button';
+    retry.addEventListener('click',()=>runPlan({resource_id:card.id,reason:reason.value}));
+    feedback.append(reason,retry);node.append(feedback);resultBody.append(node);
+  });
+  const audit = details(`판단 기록 · 제외된 후보 ${plan.excluded.length}건`, [], 'audit');
+  const workflowLabels={not_connected:'미연결',provided_unverified:'제공값 · 검증 전',synthetic_only:'합성 예시만 연결',executed:'실행됨'};
+  audit.append(el('strong','이번 실행의 단계별 상태'),list(plan.workflow_status.map(stage=>`${stage.label}: ${workflowLabels[stage.status]}${stage.mode?` (${stage.mode})`:''}`)));
+  audit.append(el('p','위험 신호·수준·원인·지원 우선순위는 연결한 분석 산출물의 값을 기록합니다. 이 화면에서 새로 산출한 결과가 아닙니다.'));
+  if(plan.support_context?.status==='self_report_only')audit.append(el('p',plan.support_context.assurance));
+  plan.excluded.forEach(item=>audit.append(el('p',`${item.name}: ${item.reasons.join(' / ')}`)));
+  audit.append(el('pre',JSON.stringify(plan.trace,null,2)), list(plan.limits)); resultBody.append(audit);
+  renderSignals();
+}
+
+function renderClarifications(profile, suggestions) {
+  const panel=document.querySelector('#clarification-panel');panel.replaceChildren();panel.hidden=false;
+  resultBody.hidden=true;document.querySelector('#empty').hidden=true;document.querySelector('#export-button').hidden=true;
+  panel.append(el('h3','이렇게 이해해도 괜찮을까요?'),el('p','입력한 문장과 선택에서 확인할 조건이에요. 반영을 선택하기 전에는 검색 조건을 바꾸지 않아요.','muted'));
+  const answers=new Map();
+  const continueButton=el('button','답한 조건으로 찾아보기 ↗','primary');continueButton.type='button';continueButton.disabled=true;
+  suggestions.forEach(suggestion=>{
+    const row=el('div',null,'clarification-row');row.append(el('p',suggestion.question),el('blockquote',suggestion.evidence,'helper'));
+    const options=el('div',null,'choice-buttons');
+    for (const [value,text] of [[true,'네, 반영해 주세요'],[false,'아니요, 유지할게요']]) {
+      const button=el('button',text,'quiet');button.type='button';button.setAttribute('aria-pressed','false');
+      button.addEventListener('click',()=>{
+        answers.set(suggestion.id,value);
+        options.querySelectorAll('button').forEach(node=>node.setAttribute('aria-pressed',String(node===button)));
+        continueButton.disabled=answers.size !== suggestions.length;
+      });options.append(button);
+    }row.append(options);panel.append(row);
+  });
+  continueButton.addEventListener('click',()=>runPlan(null,suggestions.map(s=>({id:s.id,accepted:answers.get(s.id)})),profile));
+  const skip=el('button','현재 지원 목표와 조건으로 찾아볼게요','quiet');skip.type='button';skip.addEventListener('click',()=>runPlan(null,[],profile));
+  panel.append(continueButton,skip);
+  panel.scrollIntoView({block:'nearest'});
+}
+
+async function runPlan(feedback=null, clarificationChoices=null, frozenProfile=null) {
+  errorBox.hidden=true;
+  const nextHistory = feedback ? [...feedbackHistory,feedback] : [];
+  const profile = frozenProfile || (feedback && lastPlan ? lastPlan.profile : readProfile());
+  setBusy(true);
+  try {
+    if (!feedback && clarificationChoices === null) {
+      const result=await post('/api/clarify',{profile});
+      if (result.suggestions.length) {renderClarifications(profile,result.suggestions);return;}
+    }
+    document.querySelector('#clarification-panel').hidden=true;
+    const csvAtRequest=signalCsv;
+    const plan = await post('/api/plan',{profile,analysis_csv:csvAtRequest,use_activity_model:activityModelEnabled,feedback:nextHistory,clarification_choices:clarificationChoices || [],mode:form.elements.mode.value,external_processing_consent:form.elements.consent.checked});
+    planInputCsv=csvAtRequest;
+    feedbackHistory=nextHistory; fillProfile(plan.profile); renderPlan(plan);
+  } catch(error) {showError(error.message);} finally {setBusy(false);}
+}
+form.addEventListener('submit',event=>{event.preventDefault();runPlan();});
+const base = {age:58,single:true,android:null,benefit_eligible:null,center_member:null,care_need:null,no_caregiver:null,budget_krw:0,avoid_channels:['phone'],support_check:{recent_contact:null,support_available:null,preferred_next_step:null}};
+const examples = {
+  gangnam:{...base,region:'강남구',goal:'관계 취미 문화',request:'퇴직 후 혼자 지내요. 취미로 사람들과 연결되고 싶지만 전화는 부담스러워요.'},
+  chuncheon:{...base,region:'춘천시',age:72,android:true,benefit_eligible:true,goal:'안부 일상 생활',request:'혼자 지내며 안부를 확인할 방법을 찾고 있어요.'},
+  escort:{...base,region:'춘천시',age:70,single:false,budget_krw:null,avoid_channels:[],goal:'동행 병원 생활',request:'병원에 갈 때 접수와 이동을 도와줄 사람이 필요해요.'}
+};
+document.querySelectorAll('[data-example]').forEach(button=>button.addEventListener('click',()=>{fillProfile(examples[button.dataset.example]);feedbackHistory=[];document.querySelector('#clarification-panel').hidden=true;}));
+form.addEventListener('input',()=>{document.querySelector('#clarification-panel').hidden=true;});
+document.querySelector('#export-button').addEventListener('click',()=>{
+  if (!lastPlan) return;
+  const output = {...lastPlan, regional_context:lastPlan.analysis_context.matched_rows, feedback_history:feedbackHistory};
+  const url=URL.createObjectURL(new Blob([JSON.stringify(output,null,2)],{type:'application/json'}));
+  const a=el('a'); a.href=url; a.download=`첫연결_실행계획_${lastPlan.as_of}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+function renderSignals() {
+  const output=document.querySelector('#signals-output');output.replaceChildren();
+  if (!signalRows.length) {output.append(el('p','현재 분석 결과는 연결되지 않았습니다.','helper'));return;}
+  const profile=lastPlan ? lastPlan.profile : readProfile();
+  const matched=signalRows.filter(row=>row.region===profile.region && (profile.age===null || row.age_min<=profile.age && profile.age<=row.age_max));
+  if (!lastPlan || planInputCsv!==signalCsv) output.append(el('p','이 파일은 다음 검색부터 실행 기록에 반영됩니다.','helper'));
+  output.append(el('p',`읽은 행 ${signalRows.length}건 · 선택한 지역·연령에 해당하는 행 ${matched.length}건`,'helper'));
+  matched.forEach(row=>{
+    const div=el('div',null,'signal-row');
+    const ageLabel=row.age_max>=120?`${row.age_min}세 이상`:`${row.age_min}~${row.age_max}세`;
+    div.append(el('strong',`${row.data_kind==='synthetic'?'[합성 예시]':'[제공 데이터 분석]'} ${row.region} ${ageLabel}`),
+      el('p',`${row.period_start} ~ ${row.period_end} · ${row.signal_label}`),el('p',row.evidence),el('p',`모델: ${row.model_version}`,'helper'));output.append(div);
+    if(row.risk_level)div.append(el('p',`제공된 위험 수준: ${row.risk_level}`,'helper'));
+    if(row.cause_summary)div.append(el('p',`제공된 원인 해석: ${row.cause_summary}`,'helper'));
+    if(row.priority_rank)div.append(el('p',`제공된 집단 지원 순위: ${row.priority_rank} · ${row.priority_basis}`,'helper'));
+  });
+  output.append(el('p','분석 기간의 지역·계층 지표입니다. 현재 개인의 상태나 수급 자격을 의미하지 않습니다.','helper'));
+}
+document.querySelector('#signals-file').addEventListener('change',async event=>{
+  const file=event.target.files[0];if(!file)return;
+  if(file.size>180000){showError('CSV는 180KB 이내 파일을 선택해 주세요.');return;}
+  try {const csv=await file.text();const result=await post('/api/signals',{csv});signalRows=result.signals;signalCsv=csv;activityModelEnabled=false;document.querySelector('#analysis-source').textContent=`선택한 CSV: ${file.name} · 기본 활동 모형은 연결하지 않음`;renderSignals();}
+  catch(error){showError(error.message);}
+});
+document.querySelector('#latest-analysis-button').addEventListener('click',async()=>{
+  errorBox.hidden=true;
+  try {
+    const response=await fetch('/api/analysis/latest');const result=await response.json();
+    if(!response.ok || !result.available)throw new Error(result.reason || '분석 결과를 읽지 못했어요.');
+    const modelResponse=await fetch('/api/activity/latest');const activity=await modelResponse.json();
+    activityModelEnabled=modelResponse.ok && activity.available===true;
+    signalCsv=result.csv;signalRows=result.signals;document.querySelector('#signals-file').value='';
+    document.querySelector('#analysis-source').textContent=`2025년 12월 활동 변화 · 원본 ${result.input_files}개 분석 · ${activityModelEnabled?'활동 모형의 확인 경로도 연결':'활동 모형 미연결'} · 개인 고립 위험도는 미평가`;
+    renderSignals();
+  } catch(error) {showError(error.message);}
+});
+fetch('/api/meta').then(response=>response.json()).then(meta=>{
+  document.querySelector('#data-status').textContent=`서비스 자료 공식 페이지 ${meta.sources}건 수집 · 서비스·공고 ${meta.services}건 검토 · 이용조건 검토로 추천 제외 ${meta.research_only}건 · ${meta.today} 기준`;
+  document.querySelector('#llm-status').textContent=meta.llm_configured?`서버 모델 설정: ${meta.model}. 연동 코드는 실제 API 검증 전인 초안입니다. 호출은 LLM 모드를 선택해 실행할 때 이루어집니다.`:'현재 LLM 설정이 없습니다. 연동 코드는 실제 API 검증 전인 초안이며, 규칙 모드에서 조건 검증과 대안 탐색을 실행할 수 있어요.';
+  document.querySelector('#latest-analysis-button').disabled=!meta.analysis_available;
+  document.querySelector('#analysis-source').textContent=meta.analysis_available?'실제 제공 원본의 집계 분석을 연결할 수 있어요. 불러온 뒤 검색하면 실행 기록에 반영됩니다.':'완료된 제공 데이터 분석 결과가 없습니다.';
+}).catch(()=>showError('서버에 연결하지 못했어요. app.py 실행 상태를 확인해 주세요.'));
+</script>
+</body></html>

@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+.env
+data/raw/
+data/manifest.json
+data/services.seed.json
+data/processed/
+analysis/results/
+*.zip
